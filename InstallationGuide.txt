@@ -36,3 +36,24 @@ CustomLog "logs/yii2.localhost-access.log" common
 Admin LTE Integration:
 
 php composer.phar require dmstr/yii2-adminlte-asset "2.*"
+
+'components' => [
+    'view' => [
+         'theme' => [
+             'pathMap' => [
+                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+             ],
+         ],
+    ],
+],
+
+
+'components' => [
+    'assetManager' => [
+        'bundles' => [
+            'dmstr\web\AdminLteAsset' => [
+                'skin' => 'skin-black',
+            ],
+        ],
+    ],
+],
