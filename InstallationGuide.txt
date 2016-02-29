@@ -1,0 +1,38 @@
+Composer Installation:
+
+1. php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
+2. php -r "if (hash('SHA384', file_get_contents('composer-setup.php')) === 'fd26ce67e3b237fffd5e5544b45b0d92c41a4afe3e3f778e942e43ce6be197b9cdc7c251dcde6e2a52297ea269370680') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); }"
+3. php composer-setup.php
+4. php -r "unlink('composer-setup.php');"
+
+Yii2 Installation:
+
+1. php composer.phar global require "fxp/composer-asset-plugin:~1.1.1"
+2. php composer.phar create-project --prefer-dist yiisoft/yii2-app-advanced yii-application
+
+3. php /path/to/yii-application/init
+
+
+Apache COnfiguraion:
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@yii2
+    DocumentRoot "d:/wamp/www/yiiPractise/frontend/web"
+    Alias /admin "d:/wamp/www/yiiPractise/backend/web"  
+    ServerName yii2
+    ErrorLog "logs/yii2.com-error.log"
+CustomLog "logs/yii2.localhost-access.log" common
+	<Directory "d:/wamp/www/yiiPractise">
+    Options FollowSymLinks
+    AllowOverride All
+    Order deny,allow
+    Deny from all
+    Allow from 127.0.0.1
+	</Directory>
+</VirtualHost>
+
+
+
+Admin LTE Integration:
+
+php composer.phar require dmstr/yii2-adminlte-asset "2.*"
